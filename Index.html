@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ร่วมออกแบบแลนด์มาร์คและลานกิจกรรมสามชุก</title>
+    <!-- Tailwind CSS สำหรับการออกแบบ UI ที่หรูหรา น่าเชื่อถือ และรองรับมือถือ 100% -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Sarabun', sans-serif; 
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-b from-stone-50 to-stone-100 text-stone-800 min-h-screen py-6 px-4 flex items-center justify-center">
+
+    <div class="w-full max-w-2xl bg-white rounded-3xl shadow-xl border border-stone-200/80 overflow-hidden transition-all">
+        
+        <!-- หน้าจอหลัก: ฟอร์มแบบสอบถาม -->
+        <div id="formContainer" class="block">
+            <!-- ส่วนหัวเว็บไซต์ -->
+            <div class="bg-gradient-to-r from-amber-800 to-stone-900 text-white p-8 text-center relative">
+                <div class="absolute top-4 right-4 bg-amber-500/20 text-amber-300 text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider border border-amber-500/30">
+                    เสียงประชาชน
+                </div>
+                <h1 class="text-2xl md:text-3xl font-bold mt-2 mb-2">แลนด์มาร์คสามชุกในฝัน 🌾</h1>
+                <p class="text-stone-300 text-xs md:text-sm leading-relaxed max-w-md mx-auto">
+                    ในเมื่อมีการสร้างแผ่นคอนกรีตปิดฝาคลองเพื่อทำเป็นลานสาธารณะแล้ว ชุมชนของเราอยากให้ "ตัวแลนด์มาร์ค" และ "การจัดการลานปูนยาวนี้" ออกมาเป็นอย่างไร? มาร่วมกำหนดโจทย์ให้สถาปนิกนำไปเขียนแบบชุดใหม่กันครับ
+                </p>
+            </div>
+
+            <!-- ฟอร์มส่งข้อมูล (จัดการส่งข้อมูลแบบเบื้องหลังไม่ให้เปลี่ยนหน้าเว็บ) -->
+            <form id="surveyForm" class="p-6 md:p-8 space-y-8">
+                
+                <!-- รหัส Access Key ที่ผูกกับอีเมลของคุณโดยตรง -->
+                <input type="hidden" name="access_key" value="95f3b717-4238-4d3a-b1fc-20f81dcfca4e">
+                <input type="hidden" name="from_name" value="ระบบรับบรีฟออกแบบจากชาวสามชุก">
+                <input type="hidden" name="subject" value="📥 มีไอเดียออกแบบแลนด์มาร์คใหม่ส่งเข้ามา!">
+                <!-- ป้องกันสแปมและบอทกรอกฟอร์ม -->
+                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                <!-- ส่วนที่ 1: ข้อมูลทั่วไป -->
+                <div class="space-y-4">
+                    <h3 class="text-lg font-semibold text-amber-800 border-b pb-2 border-stone-100 flex items-center gap-2">
+                        <span class="bg-amber-100 text-amber-800 text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">1</span>
+                        ข้อมูลผู้ให้ไอเดีย
+                    </h3>
+                    <div>
+                        <label class="block text-sm font-semibold mb-2 text-stone-700">ท่านมีความเกี่ยวข้องอย่างไรกับพื้นที่สามชุก? *</label>
+                        <select name="ความสัมพันธ์กับพื้นที่" required class="w-full bg-stone-50/50 border border-stone-300/80 p-3.5 rounded-xl focus:ring-2 focus:ring-amber-600 focus:bg-white outline-none text-sm transition-all">
+                            <option value="">-- โปรดเลือกสถานะ --</option>
+                            <option value="ผู้อยู่อาศัยในสามชุก">เป็นผู้อยู่อาศัย / มีทะเบียนบ้านในอำเภอสามชุก</option>
+                            <option value="ผู้ประกอบการ/ร้านค้าในสามชุก">เป็นผู้ประกอบการ / ร้านค้า / พ่อค้าแม่ค้าในพื้นที่สามชุก</option>
+                            <option value="ทำงานหรือศึกษาในสามชุก">เป็นผู้ที่เข้ามาทำงาน หรือศึกษาในพื้นที่สามชุก</option>
+                            <option value="นักท่องเที่ยว">เป็นนักท่องเที่ยว / บุคคลทั่วไป</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- ส่วนที่ 2: รูปแบบแลนด์มาร์คหลัก -->
+                <div class="space-y-4">
+                    <h3 class="text-lg font-semibold text-amber-800 border-b pb-2 border-stone-100 flex items-center gap-2">
+                        <span class="bg-amber-100 text-amber-800 text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">2</span>
+                        รูปแบบและลักษณะของตัวแลนด์มาร์ค
+                    </h3>
+                    
+                    <div class="space-y-3">
+                        <label class="block text-sm font-semibold text-stone-700 mb-1">1. บนลานคอนกรีตยาวใจกลางเมืองนี้ คุณอยากให้สถาปนิกสร้าง "ตัวแลนด์มาร์คหลัก" ออกมาเป็นรูปทรงแบบใด? *</label>
+                        
+                        <label class="flex items-start space-x-3 bg-stone-50/60 p-4 rounded-xl border border-stone-200/80 cursor-pointer hover:bg-amber-50/30 hover:border-amber-300 transition-all">
+                            <input type="radio" name="รูปทรงหลักของแลนด์มาร์ค" value="ศาลาอเนกประสงค์ร่วมสมัย" required class="mt-1 text-amber-700 focus:ring-amber-500">
+                            <span class="text-sm text-stone-700">
+                                <strong class="text-amber-900 block mb-0.5">ศาลาอเนกประสงค์ร่วมสมัย (Iconic Pavilion)</strong> 
+                                โครงสร้างโปร่ง มีหลังคาบังแดดฝนขนาดใหญ่ เน้นให้คนเดินเข้าไปนั่งพักผ่อน หลบลม หรือจัดกิจกรรมข้างในได้จริง
+                            </span>
+                        </label>
+                        
+                        <label class="flex items-start space-x-3 bg-stone-50/60 p-4 rounded-xl border border-stone-200/80 cursor-pointer hover:bg-amber-50/30 hover:border-amber-300 transition-all">
+                            <input type="radio" name="รูปทรงหลักของแลนด์มาร์ค" value="ซุ้มประตูหรือหอกลองประวัติศาสตร์" class="mt-1 text-amber-700 focus:ring-amber-500">
+                            <span class="text-sm text-stone-700">
+                                <strong class="text-amber-900 block mb-0.5">ซุ้มประตูหรือหอกลองประวัติศาสตร์ (Heritage Gateway)</strong> 
+                                โครงสร้างแนวตั้งที่เป็นสัญลักษณ์เชิงวัฒนธรรม (เช่น ซุ้มประตูเมืองเก่า) เน้นความขลัง ทรงคุณค่า และสะท้อนประวัติศาสตร์ของสามชุก
+                            </span>
+                        </label>
+                        
+                        <label class="flex items-start space-x-3 bg-stone-50/60 p-4 rounded-xl border border-stone-200/80 cursor-pointer hover:bg-amber-50/30 hover:border-amber-300 transition-all">
+                            <input type="radio" name="รูปทรงหลักของแลนด์มาร์ค" value="ประติมากรรมร่วมสมัยเพื่อการเช็กอิน" class="mt-1 text-amber-700 focus:ring-amber-500">
+                            <span class="text-sm text-stone-700">
+                                <strong class="text-amber-900 block mb-0.5">ประติมากรรมร่วมสมัย (Iconic Sculpture)</strong> 
+                                สิ่งก่อสร้างรูปทรงสร้างสรรค์แปลกตาที่เป็นเอกลักษณ์เฉพาะตัว (เช่น งานจักสานยักษ์ หรือประติมากรรมอัตลักษณ์ท้องถิ่น) เน้นความโดดเด่นเพื่อถ่ายรูปเช็กอิน
+                            </span>
+                        </label>
+                        
+                        <label class="flex items-start space-x-3 bg-stone-50/60 p-4 rounded-xl border border-stone-200/80 cursor-pointer hover:bg-amber-50/30 hover:border-amber-300 transition-all">
+                            <input type="radio" name="รูปทรงหลักของแลนด์มาร์ค" value="แลนด์มาร์คสีเขียวซุ้มไม้เลื้อย" class="mt-1 text-amber-700 focus:ring-amber-500">
+                            <span class="text-sm text-stone-700">
+                                <strong class="text-amber-900 block mb-0.5">แลนด์มาร์คสีเขียว (Green Landmark)</strong> 
+                                โครงสร้างโปร่งที่เน้นการทำซุ้มไม้เลื้อยแนวตั้ง หรือสวนแนวตั้ง เพื่อเพิ่มพื้นที่สีเขียวและลดความแข็งกระด้างของลานปูนยาว
+                            </span>
+                        </label>
+                    </div>
+
+                    <div class="pt-2">
+                        <label class="block text-sm font-semibold text-stone-700 mb-3">2. สไตล์และวัสดุหลักของสิ่งก่อสร้าง ที่คุณคิดว่าเห็นแล้วรู้สึกว่า "นี่แหละคือสามชุก" *</label>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+                            <label class="flex items-center space-x-3 bg-stone-50/60 p-4 rounded-xl border border-stone-200/80 cursor-pointer hover:bg-stone-100 transition-all">
+                                <input type="radio" name="สไตล์และวัสดุ" value="งานไม้และสีน้ำตาลธรรมชาติ" required class="text-amber-700">
+                                <span>🪵 งานไม้เก่า / สีน้ำตาลธรรมชาติ (รับกับตลาด)</span>
+                            </label>
+                            <label class="flex items-center space-x-3 bg-stone-50/60 p-4 rounded-xl border border-stone-200/80 cursor-pointer hover:bg-stone-100 transition-all">
+                                <input type="radio" name="สไตล์และวัสดุ" value="งานอิฐมอญและโทนส้มอิฐ" class="text-amber-700">
+                                <span>🧱 งานอิฐมอญแดง / ดินเผาย้อนยุค</span>
+                            </label>
+                            <label class="flex items-center space-x-3 bg-stone-50/60 p-4 rounded-xl border border-stone-200/80 cursor-pointer hover:bg-stone-100 transition-all">
+                                <input type="radio" name="สไตล์และวัสดุ" value="งานปูนทาสีขาว/โทนสว่าง" class="text-amber-700">
+                                <span>🏛️ งานปูนสีขาว สะอาดตา สไตล์คลาสสิกประยุกต์</span>
+                            </label>
+                            <label class="flex items-center space-x-3 bg-stone-50/60 p-4 rounded-xl border border-stone-200/80 cursor-pointer hover:bg-stone-100 transition-all">
+                                <input type="radio" name="สไตล์และวัสดุ" value="งานเหล็ก กระจก ปูนเปลือย" class="text-amber-700">
+                                <span>✨ งานเหล็กและกระจก (Modern) ล้ำสมัย</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ส่วนที่ 3: การจัดการพื้นที่ลานคอนกรีตยาว -->
+                <div class="space-y-4">
+                    <h3 class="text-lg font-semibold text-amber-800 border-b pb-2 border-stone-100 flex items-center gap-2">
+                        <span class="bg-amber-100 text-amber-800 text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">3</span>
+                        การจัดการพื้นที่รอบลานคอนกรีตยาว
+                    </h3>
+                    
+                    <div>
+                        <label class="block text-sm font-semibold text-stone-700 mb-3">3. ในเมื่อพื้นที่จริงเป็นลานปูนยาวขนานไปกับแนวตึกแถว คุณอยากให้สถาปนิกออกแบบฟังก์ชันใดบนลานนี้บ้าง? (เลือกได้มากกว่า 1 ข้อ) *</label>
+                        <div class="space-y-3 text-sm">
+                            <label class="flex items-start space-x-3 bg-stone-50/40 p-3 rounded-xl border border-stone-200/50 hover:bg-stone-50 transition-all cursor-pointer">
+                                <input type="checkbox" name="ฟังก์ชันลานปูน[]" value="ยกกระบะดินปลูกต้นไม้ใหญ่ลดความร้อน" class="rounded text-amber-700 mt-1 focus:ring-amber-500">
+                                <span>🌳 <strong class="text-stone-900">การลดความร้อน:</strong> ยกกระบะดินปลูกต้นไม้ใหญ่ หรือทำซุ้มระแนงไม้บังแดดตลอดแนวปูน เพื่อไม่ให้ปูนแผ่ความร้อนสะสมเข้าสู่ตึกแถวสองฝั่ง</span>
+                            </label>
+                            <label class="flex items-start space-x-3 bg-stone-50/40 p-3 rounded-xl border border-stone-200/50 hover:bg-stone-50 transition-all cursor-pointer">
+                                <input type="checkbox" name="ฟังก์ชันลานปูน[]" value="วางระบบไฟรองรับตลาดนัดและถนนคนเดิน" class="rounded text-amber-700 mt-1 focus:ring-amber-500">
+                                <span>🎪 <strong class="text-stone-900">การกระตุ้นเศรษฐกิจชุมชน:</strong> วางจุดต่อระบบไฟและพื้นที่ราบเรียบยืดหยุ่น เพื่อเปิดโอกาสให้พ่อค้าแม่ค้าตั้งแผงขายของหรือจัดถนนคนเดินได้สะดวก</span>
+                            </label>
+                            <label class="flex items-start space-x-3 bg-stone-50/40 p-3 rounded-xl border border-stone-200/50 hover:bg-stone-50 transition-all cursor-pointer">
+                                <input type="checkbox" name="ฟังก์ชันลานปูน[]" value="เพิ่มม้านั่งสาธารณะในร่มสำหรับพักผ่อน" class="rounded text-amber-700 mt-1 focus:ring-amber-500">
+                                <span>🪑 <strong class="text-stone-900">การพักผ่อนหย่อนใจ:</strong> มีม้านั่งสาธารณะที่หลบแดดหลบฝนกระจายตามจุดต่างๆ ให้คนในพื้นที่และผู้สูงอายุมานั่งคุยพบปะกันได้จริง</span>
+                            </label>
+                            <label class="flex items-start space-x-3 bg-stone-50/40 p-3 rounded-xl border border-stone-200/50 hover:bg-stone-50 transition-all cursor-pointer">
+                                <input type="checkbox" name="ฟังก์ชันลานปูน[]" value="จัดไฟประดับสวยงามยามค่ำคืนดึงดูดนักท่องเที่ยว" class="rounded text-amber-700 mt-1 focus:ring-amber-500">
+                                <span>📸 <strong class="text-stone-900">การท่องเที่ยว:</strong> จัดมุมถ่ายรูปที่เป็นระเบียบพร้อมแสงไฟประดับประดาในยามค่ำคืน เพื่อดึงดูดนักท่องเที่ยวในช่วงเย็น-ดึก</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ส่วนที่ 4: ข้อห้าม -->
+                <div class="space-y-4">
+                    <h3 class="text-lg font-semibold text-rose-800 border-b pb-2 border-stone-100 flex items-center gap-2">
+                        <span class="bg-rose-100 text-rose-800 text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">4</span>
+                        สิ่งที่ไม่ต้องการ (ข้อห้ามสถาปนิก)
+                    </h3>
+                    <div>
+                        <label class="block text-sm font-semibold text-stone-700 mb-3">4. สิ่งใดที่คุณคิดว่า "ห้ามใส่มาในแบบเด็ดขาด" สำหรับลานปูนและแลนด์มาร์คนี้?</label>
+                        <div class="space-y-3 text-sm">
+                            <label class="flex items-start space-x-3 bg-stone-50/40 p-3 rounded-xl border border-stone-200/50 hover:bg-stone-50 transition-all cursor-pointer">
+                                <input type="checkbox" name="ข้อห้ามในการออกแบบ[]" value="สิ่งก่อสร้างแท่งปูนทึบขนาดใหญ่บดบังหน้าร้าน" class="rounded text-rose-700 mt-1 focus:ring-rose-500">
+                                <span>❌ สิ่งก่อสร้างที่เป็นแท่งปูนทึบขนาดใหญ่ที่แผ่ความร้อนอบอ้าวและบดบังหน้าร้านค้า/ตึกแถวโดยรอบ</span>
+                            </label>
+                            <label class="flex items-start space-x-3 bg-stone-50/40 p-3 rounded-xl border border-stone-200/50 hover:bg-stone-50 transition-all cursor-pointer">
+                                <input type="checkbox" name="ข้อห้ามในการออกแบบ[]" value="โครงสร้างสไตล์ตะวันตกจัดๆที่ไม่เข้ากับเมืองเก่า" class="rounded text-rose-700 mt-1 focus:ring-rose-500">
+                                <span>❌ โครงสร้างแปลกแยกสไตล์ตะวันตกจัดๆ (เช่น รูปทรงกรวยแหลมทึบ เสาโรมัน) ที่ไม่เข้ากับวิถีไทย-จีนดั้งเดิม</span>
+                            </label>
+                            <label class="flex items-start space-x-3 bg-stone-50/40 p-3 rounded-xl border border-stone-200/50 hover:bg-stone-50 transition-all cursor-pointer">
+                                <input type="checkbox" name="ข้อห้ามในการออกแบบ[]" value="ปล่อยเป็นลานปูนโล่งไร้ร่มเงาต้นไม้" class="rounded text-rose-700 mt-1 focus:ring-rose-500">
+                                <span>❌ ปล่อยให้พื้นคอนกรีตยาวโล่งโจ้ง ไร้การปลูกต้นไม้หรือซุ้มหลังคาบังแดด (กลัวพื้นที่ร้อนเกินไปจนร้าง)</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ส่วนที่ 5: ไอเดียเพิ่มเติม -->
+                <div class="space-y-4">
+                    <h3 class="text-lg font-semibold text-amber-800 border-b pb-2 border-stone-100 flex items-center gap-2">
+                        <span class="bg-amber-100 text-amber-800 text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">5</span>
+                        ข้อเสนอแนะเพิ่มเติมจากท่าน
+                    </h3>
+                    <div>
+                        <label class="block text-sm font-semibold text-stone-700 mb-2">5. หากท่านสามารถฝากบอกสถาปนิกที่จะมาเขียนแบบโครงการนี้ได้โดยตรง ท่านอยากให้เขาเพิ่มไอเดียอะไรลงไปอีกไหมครับ?</label>
+                        <textarea name="ไอเดียเพิ่มเติมจากประชาชน" rows="4" placeholder="พิมพ์ความคิดสร้างสรรค์ หรือรายละเอียดแบบที่คุณจินตนาการไว้ที่นี่ได้เลยครับ..." class="w-full bg-stone-50 border border-stone-300 p-3.5 rounded-xl focus:ring-2 focus:ring-amber-600 focus:bg-white outline-none text-sm transition-all"></textarea>
+                    </div>
+                </div>
+
+                <!-- แสดงข้อความเตือนข้อผิดพลาด (ถ้าส่งไม่ผ่าน) -->
+                <div id="errorBox" class="hidden bg-rose-50 border-l-4 border-rose-500 p-4 rounded-r-xl text-xs text-rose-800">
+                    <p class="font-bold">เกิดข้อผิดพลาดในการส่งข้อมูล</p>
+                    <p class="mt-1">กรุณาตรวจสอบการเชื่อมต่ออินเทอร์เน็ตของท่านแล้วลองกดส่งใหม่อีกครั้งครับ</p>
+                </div>
+
+                <!-- ปุ่มส่งข้อมูล -->
+                <div class="pt-4">
+                    <button type="submit" id="submitBtn" class="w-full bg-amber-800 hover:bg-stone-900 text-white font-bold py-4 px-6 rounded-xl shadow-md transition-all cursor-pointer text-center text-base flex items-center justify-center gap-2">
+                        ส่งข้อมูลความต้องการเพื่อบรีฟสถาปนิก 🗳️
+                    </button>
+                    <p class="text-center text-[11px] text-stone-400 mt-3">ข้อมูลของท่านทั้งหมดจะถูกเก็บเป็นสถิติร่วมของชุมชนสามชุกอย่างปลอดภัยและเป็นความลับ</p>
+                </div>
+
+            </form>
+        </div>
+
+        <!-- หน้าจอความสำเร็จ: แสดงหลังจากส่งสำเร็จ -->
+        <div id="successScreen" class="hidden p-8 md:p-12 text-center space-y-6">
+            <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto text-3xl animate-bounce">
+                ✓
+            </div>
+            <div class="space-y-2">
+                <h2 class="text-2xl font-bold text-emerald-900">ส่งข้อมูลความเห็นสำเร็จแล้ว!</h2>
+                <p class="text-stone-500 text-sm max-w-sm mx-auto leading-relaxed">
+                    ขอขอบคุณชาวสามชุกทุกท่านที่ร่วมเป็นพลังสร้างสรรค์เพื่อกำหนดโจทย์ให้กับสถาปนิกได้ออกแบบสิ่งที่เป็นประโยชน์สูงสุดต่อชุมชนเราครับ 🌾
+                </p>
+            </div>
+            <div class="bg-stone-50 border border-stone-200/60 p-4 rounded-xl text-xs text-stone-500 max-w-sm mx-auto">
+                <p class="font-semibold text-stone-700">ข้อมูลของคุณถูกส่งตรงไปยังระบบรวบรวมข้อมูลแล้ว</p>
+                <p class="mt-1">เราจะประมวลผลคำตอบทั้งหมดเพื่อจัดทำเอกสารข้อสรุปยื่นเสนอต่อคณะกรรมการและเทศบาลในขั้นตอนต่อไปครับ</p>
+            </div>
+            <button onclick="resetForm()" class="text-xs text-amber-700 font-semibold hover:underline cursor-pointer block mx-auto pt-2">
+                ต้องการกรอกความคิดเห็นเพิ่มเติม (ส่งคำตอบใหม่)
+            </button>
+        </div>
+
+    </div>
+
+    <!-- JavaScript สำหรับควบคุมการส่งข้อมูลแบบ AJAX ไร้การเปลี่ยนหน้า -->
+    <script>
+        const form = document.getElementById('surveyForm');
+        const formContainer = document.getElementById('formContainer');
+        const successScreen = document.getElementById('successScreen');
+        const submitBtn = document.getElementById('submitBtn');
+        const errorBox = document.getElementById('errorBox');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault(); // ป้องกันการเด้งไปหน้าอื่น
+            
+            // ซ่อนกล่องข้อความแจ้งเตือนข้อผิดพลาดเก่า (ถ้ามี)
+            errorBox.classList.add('hidden');
+            
+            // แสดงสถานะกำลังโหลดที่ปุ่ม
+            const originalButtonText = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+           submitBtn.innerHTML = `
+                <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                กำลังบันทึกข้อมูล...
+            `;
+
+            // ดึงข้อมูลฟอร์มและแปลงเป็น JSON
+            const formData = new FormData(form);
+            const object = {};
+            formData.forEach((value, key) => {
+                // จัดการกับช่อง checkbox ที่เลือกได้หลายข้อ
+                if (key.endsWith('[]')) {
+                    const realKey = key.slice(0, -2);
+                    if (!object[realKey]) {
+                        object[realKey] = [];
+                    }
+                    object[realKey].push(value);
+                } else {
+                    object[key] = value;
+                }
+            });
+            const json = JSON.stringify(object);
+
+            // ส่งข้อมูลไปยัง API ของ Web3Forms
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            })
+            .then(async (response) => {
+                let res = await response.json();
+                if (response.status === 200) {
+                    // ส่งข้อมูลสำเร็จ: ซ่อนฟอร์มและโชว์หน้าความสำเร็จ
+                    formContainer.classList.add('hidden');
+                    successScreen.classList.remove('hidden');
+                    // เลื่อนหน้าจอขึ้นไปบนสุด
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    // เกิดข้อผิดพลาดจาก API
+                    console.log(res);
+                    errorBox.classList.remove('hidden');
+                }
+            })
+            .catch(error => {
+                // เกิดข้อผิดพลาดเกี่ยวกับการเชื่อมต่อเครือข่าย
+                console.log(error);
+                errorBox.classList.remove('hidden');
+            })
+            .then(() => {
+                // คืนค่าปุ่มส่งข้อมูลกลับมาปกติ
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalButtonText;
+            });
+        });
+
+        // ฟังก์ชันสำหรับกรณีชาวบ้านต้องการกรอกเพิ่มอีกรอบ
+        function resetForm() {
+            form.reset();
+            successScreen.classList.add('hidden');
+            formContainer.classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
